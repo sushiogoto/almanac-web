@@ -34,18 +34,10 @@ const dummyData = [
   }
 ];
 export class News extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   // TODO: pass dummy data in through here?
-  // }
-  // componentDidMount: function() {
-  //   $.get(this.props.source, function(result) {
-  //     var data = result[0];
-  //     if (this.isMounted()) {
-  //       // this.
-  //     }
-  //   }.bind(this));
-  // },
+
+  constructor (props) {
+    super(props);
+  }
 
   render () {
     return (
