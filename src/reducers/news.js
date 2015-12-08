@@ -1,7 +1,8 @@
-// import { createReducer }     from '../utils';
-// import { GET_NEWS } from 'constants/news';
-//
-// const initialState = 0;
-// export default createReducer(initialState, {
-//   [COUNTER_INCREMENT] : (state) => state + 1
-// });
+import { createReducer }     from '../utils';
+import { GET_NEWS } from 'constants/news';
+
+const initialState = [];
+export default createReducer(initialState, {
+  [GET_NEWS] : (state) =>
+      console.log('showing state change ', state)
+});
