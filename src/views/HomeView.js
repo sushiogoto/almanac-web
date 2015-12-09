@@ -1,7 +1,8 @@
 import React                  from 'react';
 import { bindActionCreators } from 'redux';
 import { connect }            from 'react-redux';
-import counterActions         from 'actions/counter';
+// import counterActions         from 'actions/counter';
+import newsActions            from 'actions/news';
 import { Link }               from 'react-router';
 import { News }               from 'containers/News';
 
@@ -13,17 +14,23 @@ import { News }               from 'containers/News';
 
 const mapStateToProps = (state) => ({
   counter : state.counter,
+  news: state.news,
   routerState : state.router
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  actions : bindActionCreators(counterActions, dispatch)
+  actions : bindActionCreators(newsActions, dispatch)
 });
 
 export class HomeView extends React.Component {
   static propTypes = {
     actions  : React.PropTypes.object,
-    counter  : React.PropTypes.number
+    counter  : React.PropTypes.number,
+    news     : React.PropTypes.array
+  }
+
+  componentWillMount () {
+    this.props.actions.getNews();
   }
 
   render () {
@@ -36,7 +43,7 @@ export class HomeView extends React.Component {
                 onClick={this.props.actions.increment}>
           Increment
         </button>
-        <News />
+        <News data={ this.props.news } />
         <hr />
         <Link to='/about'>Go To About View</Link>
         {/* Temporary way to test the NewsView */}
