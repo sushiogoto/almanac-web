@@ -1,7 +1,7 @@
 import React                      from 'react';
 import { bindActionCreators }     from 'redux';
 import { connect }                from 'react-redux';
-import newsActions, { fetchNews } from 'actions/news';
+import newsActions, { fetchNews, receiveNews } from 'actions/news';
 import { Link }                   from 'react-router';
 import { News }                   from 'containers/News';
 
@@ -12,14 +12,9 @@ import { News }                   from 'containers/News';
 // See: http://rackt.github.io/redux/docs/recipes/WritingTests.html
 
 const mapStateToProps = (state) => ({
-  routerState : state.router,
-  news: () => {
-    fetchNews()
-    .then( (newsList) => {
-      debugger;
-      return newsList;
-    });
-  }
+  routerState : state.routing,
+  news: state.news.data,
+  isFetching: state.news.isFetching
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -30,30 +25,34 @@ export class HomeView extends React.Component {
 
   static propTypes = {
     actions  : React.PropTypes.object,
-    news: React.PropTypes.array.isRequired
+    data: React.PropTypes.array
   }
 
   constructor (props) {
     super(props);
-    // dispatch(fetchNews().then( (newsList) => {
-    //   return newsList;
-    // }))
-    // props.actions.fetchNews().then( (newsList) => {
-    // });
   }
 
-  // componentDidMount() {
-  //   const { dispatch, selectedReddit } = this.props
-  //   dispatch(this.props.)
-  // }
+  componentDidMount () {
+    this.props.actions.fetchNews();
+  }
 
+  componentWillReceiveProps (nextProps) {
+    // if (this.props.news !== nextProps.news) {
+    //     // Optionally do something with data
+    // }
+
+    // if (!nextProps.isFetching) {
+    //     this.startPoll();
+    // }
+    nextProps;
+  }
   render () {
     return (
       <div className='container text-center'>
         <h1>Almanac News</h1>
 
         <h2>News Feed</h2>
-        <News data={ this.props.news } />
+        <News data={this.props.news} />
         <hr />
         <Link to='/about'>Go To About View</Link>
         <br/>

@@ -7,13 +7,6 @@ export class News extends Component {
     data: React.PropTypes.object.isRequired
   }
 
-  // { const newsList = this.props.data.then((news) => {
-  //     news.data.map(function (newsItem) {
-  //       return newsItem;
-  //     });
-  //   });
-  // }
-
   render () {
     return (
       <section>
