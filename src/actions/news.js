@@ -1,16 +1,14 @@
-import { GET_NEWS_STARTED } from 'constants/news';
+import { FETCH_NEWS_STARTED, FETCH_NEWS_COMPLETED } from 'constants/news';
 
 export default {
-  getNews: () => {
+  fetchNews: () => {
     return (dispatch) => {
-      dispatch({type : GET_NEWS_STARTED });
+      dispatch({type : FETCH_NEWS_STARTED });
 
-      return fetch('https://github-note-taker.firebaseio.com/', {
-        method: 'get'
-      }).then( (result) =>
-        // alert(JSON.stringify(result));
-        result
-      );
+      return fetch('http://localhost:5000/news')
+        .then( result => result.json())
+        .then( data => dispatch({type: FETCH_NEWS_COMPLETED, data}))
+        .catch(e => console.log(e));
     };
   }
 };
