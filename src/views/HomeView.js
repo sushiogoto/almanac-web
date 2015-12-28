@@ -59,7 +59,7 @@ export class HomeView extends React.Component {
 
     return (
       <div className='container text-center'>
-        <h1>News Feed</h1>
+        <h1>News Container</h1>
         <hr />
         <div>
           {newsContainerPending}
