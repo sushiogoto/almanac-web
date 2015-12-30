@@ -37,6 +37,10 @@ export class NewsPageView extends React.Component {
     super(props)
   }
 
+  render () {
+    const { id } = this.props.params;
+    const article = this.props.newsData[id];
+
   componentWillMount() {
     // call time parsing function
     this.props.actions.fetchFinance(this.props.params).then( () => console.log(this.props.financeData.result) )

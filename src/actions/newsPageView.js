@@ -51,10 +51,16 @@ export function fetchFinance() {
 }
 
 export function toggleLike(articleId, likeStatus) {
+  console.log('inside toggleLike');
   return dispatch => {
     if (likeStatus === 1) {
+      // /api/likes/:article
+      console.log('inside status 1');
       return fetch('/api/like/' + articleId, {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
           vote: -1
         })
@@ -73,8 +79,12 @@ export function toggleLike(articleId, likeStatus) {
         .then( data => dispatch(data) )
         // .catch( () => dispatch({ type: FETCH_NEWS_FAILED }) );
     } else {
+      console.log('inside status -1');
       return fetch('/api/like/' + articleId, {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
           vote: 1
         })
