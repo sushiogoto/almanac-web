@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as ActionCreators from 'actions/auth';
+import localStorage from 'redux-localstorage';
 
 const mapStateToProps = (state) => ({
   routerState: state.routing,
@@ -40,11 +41,12 @@ export class LoginView extends React.Component {
     let loginContainerPending;
 
     if (!isFetching && auth) {
-      loginContainerPending = <Button onClick={ () => auth.data.show() }>Sign In</Button>;
+      loginContainerPending = <Button onClick={ () => auth.show() }>Sign In</Button>;
     } else {
       loginContainerPending = <p>Login</p>;
     }
     return (
+      // TODO: refactor this chunk using refs
       <div className='login-box'>
         { loginContainerPending }
       </div>
