@@ -3,7 +3,10 @@ import { Button } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as ActionCreators from 'actions/auth';
+<<<<<<< HEAD
 import localStorage from 'redux-localstorage';
+=======
+>>>>>>> afc6dc187dc636f25748600032d241ac6bef4c2e
 
 const mapStateToProps = (state) => ({
   routerState: state.routing,
