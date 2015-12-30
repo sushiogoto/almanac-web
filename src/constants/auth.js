@@ -1,0 +1,9 @@
+import { createConstants } from '../utils';
+
+export default createConstants(
+  'REQUEST_FACEBOOK_STARTED',
+  'REQUEST_FACEBOOK_COMPLETED',
+  'REQUEST_FACEBOOK_ERROR',
+  'DISMISS_REQUEST_FACEBOOK_ERROR_MODAL',
+  'DISMISS_REQUEST_FACEBOOK_SUCCESS_MODAL'
+);
