@@ -6,10 +6,10 @@ const initialState = {
 
 export default function authReducer (state = initialState, action) {
   switch (action.type) {
-  case types.REQUEST_AUTH_STARTED:
-    return Object.assign({}, state, {
+  // case types.REQUEST_AUTH_STARTED:
+  //   return Object.assign({}, state, {
   //     isFetching: true
-    });
+  //   });
 
   case types.REQUEST_AUTH_COMPLETED:
     return Object.assign({}, state, {
