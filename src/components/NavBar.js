@@ -32,7 +32,9 @@ export class NavBar extends React.Component {
                 <MenuItem eventKey={2.2}>User Profile</MenuItem>
               </LinkContainer>
               <MenuItem divider />
-              <MenuItem eventKey={2.3}>Login/Logout</MenuItem>
+              <LinkContainer to='/login'>
+                <MenuItem eventKey={2.3}>Login/Logout</MenuItem>
+              </LinkContainer>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

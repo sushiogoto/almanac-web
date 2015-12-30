@@ -5,7 +5,6 @@ import * as ActionCreators from 'actions/news';
 import { NewsContainer } from 'containers/NewsContainer';
 import { NewsError } from 'components/NewsError';
 import CircularProgress from 'material-ui/lib/circular-progress';
-import { OAuthSignInButton } from 'redux-auth/bootstrap-theme';
 
 // We define mapStateToProps and mapDispatchToProps where we'd normally use
 // the @connect decorator so the data requirements are clear upfront, but then
@@ -62,15 +61,8 @@ export class HomeView extends React.Component {
 
     return (
       <div className='container text-center'>
-        <h1>News Poop</h1>
+        <h1>News Something</h1>
         <hr />
-        <OAuthSignInButton
-          provider='facebook'
-          endpoint='117916881917333'
-          secondary={true}
-          bsStyle='primary'>
-          Facebook
-        </OAuthSignInButton>
         <div>
           { newsContainerPending }
         </div>
